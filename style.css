@@ -1,0 +1,590 @@
+/* ============================================
+   1. ROOT VARIABLES — change these to re-theme
+      the whole site from one place.
+   ============================================ */
+:root {
+  --color-bg: #10161f;
+  --color-bg-alt: #161e29;
+  --color-bg-card: #1b2431;
+  --color-border: #2a3644;
+  --color-text: #e7ecf2;
+  --color-text-muted: #a7b3c2;
+  --color-accent: #e6b75c;
+  --color-accent-soft: #e6b75c22;
+
+  --radius-lg: 16px;
+  --radius-sm: 8px;
+
+  --max-width: 1100px;
+  --section-gap: 6.5rem;
+}
+
+/* ============================================
+   2. RESET — small, predictable base styles
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  line-height: 1.25;
+  margin: 0 0 0.6em 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: var(--section-gap) 0;
+}
+
+.section-heading {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin-bottom: 0.4rem;
+}
+
+.section-subtext {
+  color: var(--color-text-muted);
+  max-width: 60ch;
+  margin-bottom: 3rem;
+}
+
+.accent-line {
+  width: 46px;
+  height: 4px;
+  background-color: var(--color-accent);
+  border-radius: 4px;
+  margin-bottom: 1.4rem;
+}
+
+/* ============================================
+   3. NAVIGATION BAR
+   ============================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(16, 22, 31, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-text);
+}
+
+.logo span {
+  color: var(--color-accent);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  padding: 0.3rem 0.1rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-text);
+  border-bottom-color: var(--color-accent);
+}
+
+/* ============================================
+   4. HERO SECTION
+   ============================================ */
+.hero {
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 420px);
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-eyebrow {
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
+  max-width: 16ch;
+}
+
+.hero-tagline {
+  color: var(--color-text-muted);
+  font-size: 1.15rem;
+  max-width: 46ch;
+  margin-bottom: 1rem;
+}
+
+.hero-intro {
+  max-width: 58ch;
+  color: var(--color-text-muted);
+  margin-bottom: 2.2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero-portrait-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-portrait-frame {
+  width: min(100%, 360px);
+  aspect-ratio: 1 / 1;
+  padding: 0.55rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(230, 183, 92, 0.2), rgba(230, 183, 92, 0.04));
+  border: 1px solid var(--color-border);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+}
+
+.hero-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  border-radius: 50%;
+  display: block;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #1b1305;
+}
+
+.btn-primary:hover {
+  background-color: #f0c476;
+}
+
+.btn-secondary {
+  border-color: var(--color-border);
+  color: var(--color-text);
+  background-color: transparent;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ============================================
+   5. ABOUT SECTION
+   ============================================ */
+.about {
+  background-color: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.about-facts {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.fact {
+  border-left: 2px solid var(--color-border);
+  padding-left: 1rem;
+}
+
+.fact-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.fact-value {
+  font-weight: 600;
+}
+
+/* ============================================
+   6. SKILLS & INTERESTS
+   ============================================ */
+.skills-columns {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+}
+
+.subheading {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  color: var(--color-text);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.tag {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.tag:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.interest-list li {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.interest-list li:last-child {
+  border-bottom: none;
+}
+
+/* ============================================
+   7. CURRENTLY LEARNING
+   ============================================ */
+.learning {
+  background-color: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.learning-box {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  padding: 1.8rem 2rem;
+  max-width: 70ch;
+}
+
+/* ============================================
+   8. PROJECTS
+   ============================================ */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+}
+
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.project-card h3 {
+  margin-bottom: 0;
+  font-size: 1.15rem;
+}
+
+.status-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.status-ongoing {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.status-complete {
+  background-color: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+.project-tech {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.project-desc {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* ============================================
+   9. EDUCATION / VOLUNTEERING (simple timeline)
+   ============================================ */
+.edu-vol {
+  background-color: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.timeline {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 4px 1fr;
+  gap: 1.3rem;
+}
+
+.timeline-bar {
+  background-color: var(--color-accent);
+  border-radius: 4px;
+}
+
+.timeline-content h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+}
+
+.timeline-org {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+/* ============================================
+   10. CONTACT
+   ============================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.3rem;
+}
+
+.contact-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+  text-align: center;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+.contact-card p:first-of-type {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.contact-card p:last-of-type {
+  font-weight: 600;
+  word-break: break-word;
+  margin-bottom: 0;
+}
+
+/* ============================================
+   11. FOOTER
+   ============================================ */
+footer {
+  padding: 2.5rem 0;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+footer p {
+  margin: 0.2rem 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+footer .footer-name {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* ============================================
+   12. RESPONSIVE — tablet and mobile
+   ============================================ */
+@media (max-width: 800px) {
+  :root {
+    --section-gap: 4.5rem;
+  }
+
+  .navbar .container {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    align-items: flex-start;
+  }
+
+  .hero-portrait-wrap {
+    width: 100%;
+  }
+
+  .about-grid,
+  .skills-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
