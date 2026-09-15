@@ -1,277 +1,445 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Murshed Ahmed | Software Engineering Student</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murshed Ahmed | Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!--
+        /* ---------- General Styles ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0f172a, #172554);
+        }
+
+        .hero {
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            margin-bottom: 15px;
+            color: #f8fafc;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #94a3b8;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border: 1px solid #38bdf8;
+            border-radius: 8px;
+            color: #38bdf8;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #38bdf8;
+            color: #0f172a;
+            transform: translateY(-3px);
+        }
+
+        /* ---------- Navigation ---------- */
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #f8fafc;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* ---------- Sections ---------- */
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: #f8fafc;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #94a3b8;
+        }
+
+        /* ---------- About ---------- */
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+        }
+
+        /* ---------- Skills ---------- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #334155;
+            transition: 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .skill-card h3 {
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: #94a3b8;
+        }
+
+        /* ---------- Currently Learning ---------- */
+        .learning {
+            background: #111c32;
+        }
+
+        .learning-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .learning-content p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .learning-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .learning-list li {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 10px 18px;
+            border-radius: 20px;
+            color: #38bdf8;
+        }
+
+        /* ---------- Contact ---------- */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .contact-links a {
+            padding: 12px 20px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: #cbd5e1;
+            transition: 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: #38bdf8;
+            border-color: #38bdf8;
+            transform: translateY(-3px);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #020617;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* ---------- Responsive Design ---------- */
+        @media (max-width: 650px) {
+            nav .container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .hero {
+                padding: 0 15px;
+            }
+        }
+    -->
 </head>
+
 <body>
 
-  <!-- ============ NAVIGATION ============ -->
-  <header class="navbar">
-    <div class="container">
-      <a href="#home" class="logo">Murshed <span>Ahmed</span></a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Murshed.</a>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="home">
-    <div class="container hero-layout">
-      <div class="hero-copy">
-        <p class="hero-eyebrow">Sylhet, Bangladesh</p>
-        <h1>Hi, I'm Murshed Ahmed</h1>
-        <p class="hero-tagline">Software Engineering Student | Programmer | Technology Enthusiast</p>
-        <p class="hero-intro">
-          I'm a third-year Software Engineering student who enjoys building small software
-          projects and learning how things work under the hood — from programming logic
-          to cybersecurity and the web. I'm still early in my journey, and I'm using every
-          project as a chance to get better.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">View My Projects</a>
-          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#learning">Learning</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-      </div>
+    </nav>
 
-      <div class="hero-portrait-wrap">
-        <div class="hero-portrait-frame">
-          <img src="profile.jpg" alt="Murshed Ahmed portrait" class="hero-portrait">
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <header>
+        <div class="hero container">
+            <h1>Hi, I'm <span>Murshed Ahmed</span></h1>
 
-  <!-- ============ ABOUT ============ -->
-  <section class="about" id="about">
-    <div class="container">
-      <h2 class="section-heading">About Me</h2>
-      <div class="accent-line"></div>
-      <div class="about-grid">
-        <p class="section-subtext" style="margin-bottom:0;">
-          I am a Software Engineering student interested in programming, cybersecurity,
-          web development, and modern technology. I enjoy learning new technical skills
-          and building small software projects on the side. My goal is to keep improving
-          my programming and problem-solving abilities and to build a solid career in
-          technology, one project at a time.
-        </p>
-        <div class="about-facts">
-          <div class="fact">
-            <p class="fact-label">Degree</p>
-            <p class="fact-value">BSc in Software Engineering</p>
-          </div>
-          <div class="fact">
-            <p class="fact-label">University</p>
-            <p class="fact-value">Metropolitan University, Sylhet</p>
-          </div>
-          <div class="fact">
-            <p class="fact-label">Current Standing</p>
-            <p class="fact-value">3rd Year, 1st Semester</p>
-          </div>
-          <div class="fact">
-            <p class="fact-label">Based In</p>
-            <p class="fact-value">Sylhet, Bangladesh</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SKILLS & INTERESTS ============ -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-heading">Skills &amp; Interests</h2>
-      <div class="accent-line"></div>
-      <p class="section-subtext">
-        Languages and tools I've worked with in coursework and personal projects,
-        alongside the areas of technology I'm most curious about.
-      </p>
-      <div class="skills-columns">
-        <div>
-          <h3 class="subheading">Technical Skills</h3>
-          <div class="tag-list">
-            <span class="tag">C</span>
-            <span class="tag">C++</span>
-            <span class="tag">Python</span>
-            <span class="tag">Java</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">Microsoft Word</span>
-            <span class="tag">Microsoft Excel</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="subheading">Interests</h3>
-          <ul class="interest-list">
-            <li>Cybersecurity</li>
-            <li>Web Development</li>
-            <li>Programming</li>
-            <li>Software Engineering</li>
-            <li>Learning New Technologies</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CURRENTLY LEARNING ============ -->
-  <section class="learning">
-    <div class="container">
-      <h2 class="section-heading">Currently Learning</h2>
-      <div class="accent-line"></div>
-      <div class="learning-box">
-        <p style="margin-bottom:0;">
-          Right now I'm focused on strengthening my programming and problem-solving skills
-          while going deeper into cybersecurity, web development, and core software
-          engineering concepts. It's an ongoing process, and I'm taking it one topic at a time.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROJECTS ============ -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-heading">Projects</h2>
-      <div class="accent-line"></div>
-      <p class="section-subtext">
-        A few of the projects I've built to practice programming concepts and
-        database design.
-      </p>
-      <div class="project-grid">
-
-        <div class="project-card">
-          <div class="project-top">
-            <h3>Blood Bank Management Project</h3>
-            <span class="status-pill status-complete">Completed</span>
-          </div>
-          <p class="project-tech">Python</p>
-          <p class="project-desc">
-            A program to manage blood donor and recipient records, built to practice
-            core programming and data-handling logic in Python.
-          </p>
-        </div>
-
-        <div class="project-card">
-          <div class="project-top">
-            <h3>Hotel Reservation System</h3>
-            <span class="status-pill status-complete">Completed</span>
-          </div>
-          <p class="project-tech">Java</p>
-          <p class="project-desc">
-            A system for handling hotel room bookings, built to practice
-            object-oriented programming concepts in Java.
-          </p>
-        </div>
-
-        <div class="project-card">
-          <div class="project-top">
-            <h3>Database Management System</h3>
-            <span class="status-pill status-complete">Completed</span>
-          </div>
-          <p class="project-tech">Python + MySQL</p>
-          <p class="project-desc">
-            A project combining Python with a MySQL database to store, query,
-            and manage structured records.
-          </p>
-        </div>
-
-        <div class="project-card">
-          <div class="project-top">
-            <h3>RouteX</h3>
-            <span class="status-pill status-ongoing">Ongoing</span>
-          </div>
-          <p class="project-tech">Java</p>
-          <p class="project-desc">
-            A route-based project currently in development, where I'm applying
-            and expanding my Java programming skills.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ EDUCATION / VOLUNTEERING ============ -->
-  <section class="edu-vol">
-    <div class="container">
-      <h2 class="section-heading">Education &amp; Volunteering</h2>
-      <div class="accent-line"></div>
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-bar"></div>
-          <div class="timeline-content">
-            <h3>BSc in Software Engineering</h3>
-            <p class="timeline-org">Metropolitan University, Sylhet — 3rd Year, 1st Semester (Ongoing)</p>
-            <p style="margin-bottom:0; color: var(--color-text-muted);">
-              Currently building a foundation in software engineering, programming,
-              and database concepts.
+            <p>
+                Software Engineering student passionate about programming,
+                cybersecurity, and building useful technology.
             </p>
-          </div>
+
+            <a href="#about" class="btn">Explore My Portfolio</a>
         </div>
+    </header>
 
-        <div class="timeline-item">
-          <div class="timeline-bar"></div>
-          <div class="timeline-content">
-            <h3>University Programming Contest</h3>
-            <p class="timeline-org">Volunteer</p>
-            <p style="margin-bottom:0; color: var(--color-text-muted);">
-              Took part as a volunteer, helping support the event alongside
-              fellow students.
-            </p>
-          </div>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>A little about who I am</p>
+            </div>
+
+            <div class="about-content">
+                <p>
+                    I'm a Software Engineering student currently in my
+                    3rd year at Metropolitan University, Sylhet. I enjoy
+                    learning how software works, solving programming
+                    problems, and exploring new technologies.
+                </p>
+
+                <br>
+
+                <p>
+                    I'm particularly interested in cybersecurity and want
+                    to build a strong career in the technology industry.
+                    I also enjoy working on programming projects and
+                    continuously improving my technical skills.
+                </p>
+            </div>
+
         </div>
+    </section>
 
-      </div>
-    </div>
-  </section>
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
 
-  <!-- ============ CONTACT ============ -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-heading">Contact</h2>
-      <div class="accent-line"></div>
-      <p class="section-subtext">
-        Feel free to reach out — I'm always open to connecting with fellow
-        students and developers.
-      </p>
-      <div class="contact-grid">
+            <div class="section-title">
+                <h2>Skills & Interests</h2>
+                <p>Technologies and areas I'm interested in</p>
+            </div>
 
-        <a href="https://github.com/murshed110" target="_blank" rel="noopener noreferrer" class="contact-card">
-          <p>GitHub</p>
-          <p>github.com/murshed110</p>
-        </a>
+            <div class="skills-grid">
 
-        <a href="https://www.linkedin.com/in/your-linkedin-placeholder" target="_blank" rel="noopener noreferrer" class="contact-card">
-          <p>LinkedIn</p>
-          <p>linkedin.com/in/your-placeholder</p>
-        </a>
+                <div class="skill-card">
+                    <h3>C / C++</h3>
+                    <p>Programming & problem solving</p>
+                </div>
 
-        <a href="mailto:youremail@example.com" class="contact-card">
-          <p>Email</p>
-          <p>youremail@example.com</p>
-        </a>
+                <div class="skill-card">
+                    <h3>Python</h3>
+                    <p>Programming & application development</p>
+                </div>
 
-      </div>
-    </div>
-  </section>
+                <div class="skill-card">
+                    <h3>Java</h3>
+                    <p>Object-oriented programming</p>
+                </div>
 
-  <!-- ============ FOOTER ============ -->
-  <footer>
-    <div class="container">
-      <p class="footer-name">© 2026 Murshed Ahmed</p>
-      <p>Software Engineering student, building one project at a time.</p>
-    </div>
-  </footer>
+                <div class="skill-card">
+                    <h3>Cybersecurity</h3>
+                    <p>Security fundamentals & ethical hacking</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Databases</h3>
+                    <p>MySQL & database concepts</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Problem Solving</h3>
+                    <p>Algorithms & logical thinking</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Currently Learning -->
+    <section id="learning" class="learning">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Currently Learning</h2>
+                <p>What I'm working on right now</p>
+            </div>
+
+            <div class="learning-content">
+
+                <p>
+                    I'm currently strengthening my programming fundamentals
+                    while exploring cybersecurity and different areas of
+                    information security. I'm also working on university
+                    projects and developing my practical problem-solving skills.
+                </p>
+
+                <ul class="learning-list">
+                    <li>Cybersecurity</li>
+                    <li>Networking</li>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>Algorithms</li>
+                    <li>Database Systems</li>
+                </ul>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Let's Connect</h2>
+                <p>Feel free to reach out</p>
+            </div>
+
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/" target="_blank">
+                    LinkedIn
+                </a>
+
+                <a href="https://github.com/murshed110" target="_blank">
+                    GitHub
+                </a>
+
+                <a href="mailto:your-email@example.com">
+                    Email
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Murshed Ahmed. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
+```
